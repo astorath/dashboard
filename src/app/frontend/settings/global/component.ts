@@ -73,6 +73,7 @@ export class GlobalSettingsComponent implements OnInit, OnDestroy {
     this.settings.logsAutoRefreshTimeInterval = this.settings_.getLogsAutoRefreshTimeInterval();
     this.settings.resourceAutoRefreshTimeInterval = this.settings_.getResourceAutoRefreshTimeInterval();
     this.settings.disableAccessDeniedNotifications = this.settings_.getDisableAccessDeniedNotifications();
+    this.settings.containerEnvColumns = this.settings_.getContainerEnvColumns();
   }
 
   onLoadError(): void {

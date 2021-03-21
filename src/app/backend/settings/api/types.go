@@ -95,6 +95,7 @@ type Settings struct {
 	LogsAutoRefreshTimeInterval      int    `json:"logsAutoRefreshTimeInterval"`
 	ResourceAutoRefreshTimeInterval  int    `json:"resourceAutoRefreshTimeInterval"`
 	DisableAccessDeniedNotifications bool   `json:"disableAccessDeniedNotifications"`
+	ContainerEnvColumns              int    `json:"containerEnvColumns"`
 }
 
 // Marshal settings into JSON object.
@@ -117,6 +118,7 @@ var defaultSettings = Settings{
 	LogsAutoRefreshTimeInterval:      5,
 	ResourceAutoRefreshTimeInterval:  5,
 	DisableAccessDeniedNotifications: false,
+	ContainerEnvColumns:              5,
 }
 
 // GetDefaultSettings returns settings structure, that should be used if there are no

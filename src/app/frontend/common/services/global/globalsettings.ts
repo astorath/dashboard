@@ -33,6 +33,7 @@ export class GlobalSettingsService {
     logsAutoRefreshTimeInterval: 5,
     resourceAutoRefreshTimeInterval: 5,
     disableAccessDeniedNotifications: false,
+    containerEnvColumns: 5,
   };
   private isInitialized_ = false;
 
@@ -103,5 +104,9 @@ export class GlobalSettingsService {
 
   getDisableAccessDeniedNotifications(): boolean {
     return this.settings_.disableAccessDeniedNotifications;
+  }
+
+  getContainerEnvColumns(): number {
+    return this.settings_.containerEnvColumns;
   }
 }

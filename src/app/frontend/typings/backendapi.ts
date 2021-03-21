@@ -1043,6 +1043,7 @@ export interface GlobalSettings {
   logsAutoRefreshTimeInterval: number;
   resourceAutoRefreshTimeInterval: number;
   disableAccessDeniedNotifications: boolean;
+  containerEnvColumns: number;
 }
 
 export interface PinnedResource {

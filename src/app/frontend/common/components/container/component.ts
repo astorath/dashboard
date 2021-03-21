@@ -15,6 +15,7 @@
 import {Component, Input, OnChanges} from '@angular/core';
 import {ConfigMapKeyRef, Container, EnvVar, SecretKeyRef} from '@api/backendapi';
 import {KdStateService} from '../../services/global/state';
+import {GlobalSettingsService} from '../../services/global/globalsettings';
 
 @Component({
   selector: 'kd-container-card',
@@ -26,7 +27,10 @@ export class ContainerCardComponent implements OnChanges {
   @Input() namespace: string;
   @Input() initialized: boolean;
 
-  constructor(private readonly state_: KdStateService) {}
+  constructor(
+    private readonly state_: KdStateService,
+    private readonly settingsService_: GlobalSettingsService,
+  ) {}
 
   ngOnChanges(): void {
     this.container.env = this.container.env.sort((a, b) => a.name.localeCompare(b.name));
@@ -54,5 +58,9 @@ export class ContainerCardComponent implements OnChanges {
 
   getEnvVarID(_: number, envVar: EnvVar): string {
     return `${envVar.name}-${envVar.value}`;
+  }
+
+  get columnWidth(): number {
+    return 100 / this.settingsService_.getContainerEnvColumns();
   }
 }
